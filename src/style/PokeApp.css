@@ -2,3 +2,9 @@ body {
   background-color: #000;
   color: #fff;
 }
+
+.pokedex-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1rf);
+}

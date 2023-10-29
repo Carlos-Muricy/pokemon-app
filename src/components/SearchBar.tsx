@@ -3,6 +3,7 @@ import { searchPokemon } from "../searchPokemon";
 
 interface Pokemon {
     name: string;
+    sprites: any
 }
 
 const SearchBar = () => {
@@ -21,6 +22,7 @@ const SearchBar = () => {
     const result = await searchPokemon(pokemon)
     setPokemon(result)
   }
+  
 
   return (
     <div className="search-container">
@@ -30,13 +32,15 @@ const SearchBar = () => {
           className="searchbar"
           onChange={onChangeHandler}
         />
-          {search}
       </div>
       <div className="search-pokemon-btn-container">
         <button className="search-pokemon-btn" onClick={searchPokemonClick}>Buscar</button>
       </div>
       {pokemon ? (
-        <div> {pokemon.name}</div>
+        <>
+            <div> {pokemon?.name}</div>
+            <img src={pokemon?.sprites?.front_default} alt={pokemon?.name} />
+        </>
       ) : null}
     </div>
   )
