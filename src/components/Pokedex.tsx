@@ -4,21 +4,20 @@ import Pokemon from "./Pokemon";
 
 const Pokedex = () => {
 
-    const [loading, setLoading] = useState(false)
     const [pokemons, setPokemon] = useState<any[]>([])
     const [searchTerm, setSearchTerm] = useState("");
+    const [limit, setLimit] = useState(50);
+    const [offset, setOffset] = useState(0);
 
-    const getPokemons = async () => {
+    const getPokemons = async (newLimit: number, newOffset: number) => {
         try {
-            setLoading(true)
-            const data = await getAllPokemons()
+            const data = await getAllPokemons(newLimit, newOffset)
             const promises = data.results.map(async (pokemon: any) => {
                 return await getPokemonData(pokemon.url)
             })
 
-            const results = await Promise.all(promises)
-            setPokemon(results)
-            setLoading(false)
+            const newPokemons  = await Promise.all(promises)
+            setPokemon((prevPokemons) => [...prevPokemons, ...newPokemons]);
         } catch (error) {
             console.error('Error', error)
         }
@@ -28,10 +27,14 @@ const Pokedex = () => {
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
-    useEffect(() => {
-        getPokemons()
-    }, [])
+    const loadMorePokemons = () => {
+        setLimit(limit + 20);
+        setOffset(offset + 20);
+    }
 
+    useEffect(() => {
+        getPokemons(limit, offset)
+    }, [limit, offset])
 
     return (
         <div>
@@ -43,9 +46,7 @@ const Pokedex = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
-            {loading ? (
-                <div>Carregando</div>
-            ) : (
+            {pokemons ?  (
                 <div className="pokedex-grid">
                     {filteredPokemons.length === 0 ? (
                         <div>Nenhum resultado encontrado.</div>
@@ -55,7 +56,9 @@ const Pokedex = () => {
                         ))
                     )}
                 </div>
-            )}
+            ) : 
+            (<></>)}
+            <button onClick={loadMorePokemons}>Ver Mais</button>
         </div>
     )
 }
