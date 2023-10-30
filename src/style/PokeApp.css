@@ -4,7 +4,21 @@ body {
 }
 
 .pokedex-grid {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(3, 1rf);
+  display: flex;
+  width: 100%;
+  flex-flow: wrap;
+  gap: 50px;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokemon-name {
+  font-family: Fantasy, sans-serif;
+  font-size: 22px;
+  color: #fff;
+  text-transform: capitalize;
+  font-weight: 400;
 }
