@@ -1,14 +1,18 @@
 import React from "react"
 import { usePokemonContext } from "./PokemonContext"
+import '../style/PokemonTeam.css'
 
 const PokemonTeam = () => {
-    const { pokemonData } = usePokemonContext();
-    const { name: pokemonName, img: pokemonImage, type: pokemonType } = pokemonData;
+    const { pokemonTeam } = usePokemonContext();
 
     return(
-        <div className={pokemonType}>
-            <div className="pokemon-container">{pokemonName}</div>
-            <img src={pokemonImage} alt={pokemonName} className="pokemon-img" />
+        <div className="pokemon-team">
+            {pokemonTeam.map((pokemonData, index) => (
+                <div key={index} className={pokemonData.type}>
+                    <div className="pokemon-container">{pokemonData.name}</div>
+                    <img src={pokemonData.img} alt={pokemonData.name} className="pokemon-img" />
+                </div>
+            ))}
         </div>
     )
 }

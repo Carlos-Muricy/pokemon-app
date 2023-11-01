@@ -1,13 +1,15 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
-const PokemonContext = createContext<{
-  pokemonData: {
+interface PokemonData {
     name: string;
     img: string;
     type: string;
-  };
-  addPokemonToContext: (name: string, img: string, type: string) => void;
-} | null>(null);
+}
+
+const PokemonContext = createContext<{
+    pokemonTeam: PokemonData[];
+    addPokemonToContext: (pokemon: PokemonData) => void;
+  } | null>(null);
 
 export function usePokemonContext() {
   const context = useContext(PokemonContext);
@@ -22,19 +24,17 @@ interface PokemonProviderProps {
 }
 
 export function PokemonProvider({ children }: PokemonProviderProps) {
-  const [pokemonData, setPokemonData] = useState({
-    name: "",
-    img: "",
-    type: "",
-  });
+    const [pokemonTeam, setPokemonTeam] = useState<PokemonData[]>([]);
 
-  const addPokemonToContext = (name: string, img: string, type: string) => {
-    setPokemonData({ name, img, type });
-  };
+    const addPokemonToContext = (pokemon: PokemonData) => {
+        if (pokemonTeam.length < 6) {
+          setPokemonTeam((prevTeam) => [...prevTeam, pokemon]);
+        }
+      };
 
   return (
-    <PokemonContext.Provider value={{ pokemonData, addPokemonToContext }}>
+    <PokemonContext.Provider value={{ pokemonTeam, addPokemonToContext }}>
       {children}
     </PokemonContext.Provider>
-  );
+  );    
 }

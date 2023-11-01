@@ -1,0 +1,4 @@
+.pokemon-team {
+    display: flex;
+    justify-content: end;
+}

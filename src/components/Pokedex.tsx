@@ -9,8 +9,8 @@ const Pokedex = () => {
     const [limit, setLimit] = useState(40);
     const [offset, setOffset] = useState(0);
 
+    
 
-    useEffect(() => {
     const getPokemons = async (newLimit: number, newOffset: number) => {
         try {
             const data = await getAllPokemons(newLimit, newOffset)
@@ -25,9 +25,6 @@ const Pokedex = () => {
         }
     }
 
-    getPokemons(limit, offset)
-    }, [limit, offset, pokemons])
-
     const filteredPokemons = pokemons.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -37,10 +34,15 @@ const Pokedex = () => {
         setOffset(offset + 20);
     }
 
+    useEffect(() => {
+        getPokemons(limit, offset)
+    }, [limit, offset])
+
     return (
-        <div>
-            <div>
+        <div className="pokedex-container">
+            <div className="pokedex-search">
                 <input
+                    className="search-pokemon"
                     type="text"
                     placeholder="Pesquisar Pokémon"
                     value={searchTerm}
