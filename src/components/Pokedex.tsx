@@ -6,7 +6,7 @@ const Pokedex = () => {
 
     const [pokemons, setPokemon] = useState<any[]>([])
     const [searchTerm, setSearchTerm] = useState("");
-    const [limit, setLimit] = useState(50);
+    const [limit, setLimit] = useState(40);
     const [offset, setOffset] = useState(0);
 
     const getPokemons = async (newLimit: number, newOffset: number) => {
@@ -17,7 +17,7 @@ const Pokedex = () => {
             })
 
             const newPokemons  = await Promise.all(promises)
-            setPokemon((prevPokemons) => [...prevPokemons, ...newPokemons]);
+            setPokemon(() => [...pokemons, ...newPokemons]);
         } catch (error) {
             console.error('Error', error)
         }
@@ -34,6 +34,7 @@ const Pokedex = () => {
 
     useEffect(() => {
         getPokemons(limit, offset)
+        console.log('offset', offset)
     }, [limit, offset])
 
     return (

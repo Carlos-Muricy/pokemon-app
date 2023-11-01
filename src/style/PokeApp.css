@@ -22,3 +22,7 @@ body {
   text-transform: capitalize;
   font-weight: 400;
 }
+
+.water {
+  background-color: aqua;
+}

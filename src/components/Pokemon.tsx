@@ -6,6 +6,11 @@ interface PokemonProps {
         sprites: {
             front_default: string
         }
+        types: [{
+            type: {
+                name: string
+            }
+        }]
     }    
 }
 
@@ -18,8 +23,8 @@ const  Pokemon: React.FC<PokemonProps> = (
     }
 
     return (
-        <div className="pokemon-container">
-            <div className="pokemon-name">{pokemon?.name}</div>
+        <div className={pokemon?.types?.[0].type?.name}>
+            <div className="pokemon-container">{pokemon?.name}</div>
             <img src={pokemon?.sprites?.front_default} alt={pokemon?.name} className="pokemon-img" />
             <button className="teste" onClick={teste}>Teste</button>
         </div>
