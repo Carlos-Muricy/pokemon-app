@@ -1,9 +1,10 @@
-import React from "react"   
+import React from "react"  
+import '../style/Navbar.css'; 
 
 const Navbar = () => {
   return (
-    <nav>
-      <div>Pokemon</div>
+    <nav className="navbar">
+      <div className="navbar-container">Pokemon</div>
     </nav>
   )
 }
