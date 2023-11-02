@@ -13,6 +13,11 @@ interface PokemonProps {
         name: string
         sprites: {
             front_default: string
+            other: {
+                "official-artwork": {
+                    front_default: string
+                }
+            }
         }
         types: [{
             type: {
@@ -30,7 +35,7 @@ const  Pokemon: React.FC<PokemonProps> = (
     const addPokemonTeam = () => {
         const pokemonData: PokemonData = {
           name: pokemon.name,
-          img: pokemon.sprites.front_default,
+          img: pokemon.sprites.other["official-artwork"].front_default,
           type: pokemon.types[0].type.name,
         };
         addPokemonToContext(pokemonData);
