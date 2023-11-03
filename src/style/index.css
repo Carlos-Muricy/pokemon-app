@@ -18,3 +18,20 @@ code {
   display: flex;
   flex-flow: column;
 }
+
+.pokemon-app-middle {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 900px;
+  background-image: url("https://wallpaper.dog/large/20352515.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pokemon-title {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    font-size: 80px;
+    font-family: fantasy;
+}

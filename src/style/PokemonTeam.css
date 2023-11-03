@@ -1,22 +1,28 @@
 .pokemon-team {
   display: grid;
-  height: 900px;
   grid-template-columns: 1fr 1fr 1fr;
-  background-image: url("https://wallpaper.dog/large/20352515.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  grid-column-start: 3;
+  height: fit-content;
 }
 
 .pokemon-chose > div {
-  width: 150px;
+  width: 200px;
+  height: 300px;
   padding: 15px;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  place-items: center;
   gap: 10px;
   flex-flow: column;
-  align-self: center;
   margin: 10px;
+  border-radius: 20px;
+}
+
+.pokemon-team .pokemon-img {
+  background: #fff;
+  border-radius: 90px;
+  width: 150px;
 }
 
 .pokemon-chose .bug {

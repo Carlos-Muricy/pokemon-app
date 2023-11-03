@@ -8,7 +8,12 @@ function PokeApp() {
   return (
     <div className="App">
       <Navbar />
+      <div className="pokemon-app-middle">
+        <div className="pokemon-title">
+          POKEMON
+        </div>
       <PokemonTeam />
+      </div>
       <Pokedex />
     </div>
   )

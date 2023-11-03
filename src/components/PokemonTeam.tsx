@@ -9,13 +9,13 @@ const PokemonTeam = () => {
     <div className="pokemon-team">
       {pokemonTeam.map((pokemonData, index) => (
         <div className="pokemon-chose" key={index}>
-          <p className="pokemon-name">{pokemonData.name}</p>
           <div className={pokemonData.type}>
             <img
               src={pokemonData.img}
               alt={pokemonData.name}
               className="pokemon-img"
             />
+            <p className="pokemon-name">{pokemonData.name}</p>
           </div>
         </div>
       ))}
