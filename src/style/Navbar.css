@@ -1,11 +1,11 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #400414;
+  display: flex;
+  justify-content: center;
+  background-color: #400414;
 }
 
 .navbar-container {
-    font-size: 36px;
-    font-weight: 400;
-    font-family: fantasy, sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  font-family: fantasy, sans-serif;
 }
