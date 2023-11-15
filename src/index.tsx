@@ -1,16 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './style/index.css';
-import PokeApp from './PokeApp';
 import reportWebVitals from './reportWebVitals';
 import { PokemonProvider } from './components/PokemonContext';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './routes/Home'
+import PokemonPage from './routes/PokemonPage'
+import PokeApp from './PokeApp';
+import ErrorPage from './routes/ErrorPage';
+
+const router = createBrowserRouter([
+ {
+  path: '/',
+  element: <PokeApp />,
+  errorElement: <ErrorPage/>,
+  children: [
+    {
+      path: "/",
+      element: <Home />
+    },
+    {
+      path: "/pokemon/:name",
+      element: <PokemonPage />
+    },
+  ]
+ }
+])
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <PokemonProvider>
-    <PokeApp />
+    <RouterProvider router={router} />
   </PokemonProvider>
 );
 

@@ -48,7 +48,7 @@
   border: none;
 }
 
-.pokedex-grid > div {
+.pokedex-grid > a {
   display: flex;
   flex-flow: nowrap;
   background-color: #1f1f1f;
