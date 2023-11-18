@@ -21,12 +21,11 @@ function PokeApp()  {
     getPokemons(name)
   }, [name])
 
-
   return (
     <div className="pokemon-page">
       <div>{name}</div>
       <img
-          src={pokemon?.sprites?.front_default}
+          src={pokemon?.sprites?.other?.["official-artwork"]?.front_default}
           alt={pokemon?.name}
           className="pokemon-img"
         />
