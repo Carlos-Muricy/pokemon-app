@@ -1,0 +1,98 @@
+.pokemon-team {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-start: 3;
+  height: fit-content;
+}
+
+.pokemon-chose > div {
+  width: 200px;
+  height: 300px;
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  gap: 10px;
+  flex-flow: column;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.pokemon-team .pokemon-img {
+  background: #fff;
+  border-radius: 90px;
+  width: 150px;
+}
+
+.pokemon-chose .bug {
+  background-color: #91c12f;
+}
+
+.pokemon-chose .grass {
+  background-color: #63bc5a;
+}
+
+.pokemon-chose .fairy {
+  background-color: #ec8fe6;
+}
+
+.pokemon-chose .normal {
+  background-color: #919aa2;
+}
+
+.pokemon-chose .dragon {
+  background-color: #0b6dc3;
+}
+
+.pokemon-chose .psychic {
+  background-color: #fa7179;
+}
+
+.pokemon-chose .ghost {
+  background-color: #5269ad;
+}
+
+.pokemon-chose .ground {
+  background-color: #d97845;
+}
+
+.pokemon-chose .steel {
+  background-color: #5a8ea2;
+}
+
+.pokemon-chose .fire {
+  background-color: #ff9d55;
+}
+
+.pokemon-chose .flying {
+  background-color: #89aae3;
+}
+
+.pokemon-chose .ice {
+  background-color: #73cec0;
+}
+
+.pokemon-chose .electric {
+  background-color: #f4d23c;
+}
+
+.pokemon-chose .rock {
+  background-color: #c5b78c;
+}
+
+.pokemon-chose .dark {
+  background-color: #5a5465;
+}
+
+.pokemon-chose .water {
+  background-color: #5090d6;
+}
+
+.pokemon-chose .fighting {
+  background-color: #ce416b;
+}
+
+.pokemon-chose .poison {
+  background-color: #b567ce;
+}
