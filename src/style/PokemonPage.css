@@ -1,0 +1,28 @@
+.pokemon-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.pokemon-page-name {
+    font-size: 36px;
+    font-family: fantasy;
+    text-transform: capitalize;
+    text-align: center;
+    margin: 30px;
+}
+
+.pokemon-page-img {
+    max-width: 500px;
+    align-self: center;
+    margin: 30px;
+}
+
+.pokemon-page-content {
+    align-self: center;
+    display: flex;
+}
+
+.pokemon-moves {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
